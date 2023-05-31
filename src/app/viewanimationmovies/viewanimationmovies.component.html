@@ -1,0 +1,140 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="main-parent">
+    <div class="background-image">
+        <img class="animation-background" [src]="animationdetails.animationbg" [alt]="animationdetails.animationbg">
+    </div>
+    <div class="row parent-div">
+        <!-- <img class="animation-background" [src]="animationdetails.animationbg" [alt]="animationdetails.animationbg"> -->
+
+        <div class="col-3 child1-div">
+            <div class="image-animation">
+                <img [src]="animationdetails.animeimage" alt="">
+            </div>
+        </div>
+
+        <div class="col-9 child2-div">
+            <div class="child2-div-subchild">
+                <h1 class="animationmoviename-heading">{{animationdetails.animename}}</h1>
+                <div class="genre-dots">
+                    <!-- <img class="" src="https://pngimg.com/uploads/dot/small/dot_PNG29.png" alt=""> -->
+                    <p>Animation, Adventure, Comedy, Family </p>
+                    <img class="" src="https://pngimg.com/uploads/dot/small/dot_PNG29.png" alt="">
+                    <p>{{animationdetails.animetimeduration}}</p>
+                </div>
+                <div class="details-user-animation">
+                    <div class="icons">
+                        <div class="d-flex flex-row justify-content-center" (click)="watchlist(email,animationdetails)"
+                            type="btn">
+                            <i class="fa-solid fa-plus" *ngIf="!istrue"></i>
+                            <i class="fa-solid fa-check" *ngIf="istrue"></i>
+                            &nbsp; <p>Watchlist</p>
+                        </div>
+
+                        <div (click)="sharebutton()" class="sharefamily">
+                            <div>Share &nbsp;</div>
+                            <!-- [url]="animationdetails.animetrailor" -->
+                            <div *ngIf="ispresent">
+                                <share-buttons [url]='animationdetails.animetrailor'
+                                    [title]="animationdetails.animename"
+                                    [description]="animationdetails.animedescription"
+                                    [image]="animationdetails.animeimage" [autoSetMeta]="true"
+                                    [include]="['whatsapp','facebook','copy']">
+                                    <!-- <a href="#" class="share-button">
+                                        <i class=" watsapp fa fa-whatsapp fa-6x"></i>
+                                        WhatsApp
+                                    </a>
+                                    <a href="#" class="share-button">
+                                        <i class="fa fa-facebook "></i>
+                                        Facebook
+                                    </a>
+                                    <a href="#" class="share-button" (click)="linkcopy()">
+                                        <i class="fa-solid fa-link"></i>
+                                        Link
+                                    </a> -->
+                                </share-buttons>
+                            </div>
+
+                        </div>
+
+                        <!-- <div class="download-button" 
+                        (click)="downloadVideo(animationdetails._id)" >
+                            Download &nbsp;<i class="fa-solid fa-arrow-down-to-line"></i>
+                        </div> -->
+                        <div class="download-button">
+                            <button type="button" fileSaver [method]="'GET'" [fileName]="'videoName.mp4'"
+                                [url]="'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'">Download
+                                Video</button>
+                        </div>
+
+
+
+                    </div>
+                    <div class="icon-trailor" (click)="historyplaytailor(_id,animationdetails)">
+                        <i class=" fa-solid fa-play "></i>
+                        <a [href]="animationdetails.animetrailor">
+                            <p class="fs-5"> Play Trailor</p>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <h1 class="overview">Overview</h1>
+                    <p class="overview-paragraph">{{animationdetails.animedescription}}</p>
+                </div>
+                <div class="film-details-person-details">
+                    <div>
+                        <p>{{animationdetails.animescreenplaystoryby}}</p>
+                        <p class="heading1">Screenplay, Story</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animedirector}}</p>
+                        <p class="heading1">Director</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animescreenplayby}}</p>
+                        <p class="heading1">Screenplay</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animestoryby}}</p>
+                        <p class="heading1"> Story</p>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <!-- here we use child to parent iteractions -->
+                <!-- we call a function ,and in the ts session we will define logic for this function-->
+                <button (click)="backarrow()" class="btn btn-success"><i class="fa-solid fa-arrow-left"></i></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="background-color-blue">
+
+</div>
+<div *ngIf="isdisplay" class="link-clipboard">
+    <h1>link copied to clipboard</h1>
+</div>
+<!-- <share-buttons theme="modern-dark"
+      [include]="['copy', 'facebook', 'email', 'messenger', 'mix', 'line', 'linkedin', 'pinterest', 'print', 'reddit', 'sms', 'telegram', 'tumblr', 'twitter', 'viber', 'vk', 'xing', 'whatsapp']"
+      [showIcon]="true"
+      [showText]="true"
+      url="https://rodrigo.kamada.com.br/"
+      description="Angular Share Buttons"
+      twitterAccount="rodrigokamada"
+      class="pt-5">
+    </share-buttons>
+  
+    <share-buttons theme="modern-dark"
+      [include]="['copy', 'facebook', 'email', 'messenger', 'mix', 'line', 'linkedin', 'pinterest', 'print', 'reddit', 'sms', 'telegram', 'tumblr', 'twitter', 'viber', 'vk', 'xing', 'whatsapp']"
+      [showIcon]="false"
+      [showText]="true"
+      url="https://rodrigo.kamada.com.br/"
+      description="Angular Share Buttons"
+      twitterAccount="rodrigokamada"
+      class="pt-5">
+    </share-buttons> -->

@@ -1,0 +1,20 @@
+.download-share{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    /* align-items: center; */
+    padding: 50px;
+
+}
+.download-share div{
+    /* flex:1; */
+width:100px;
+background-color: green;
+font-size: 20px;
+color: white;
+}
+.share-icon {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+  

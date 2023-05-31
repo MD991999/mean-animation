@@ -1,0 +1,36 @@
+<div class="parent-div">
+    <div class="image-gif">
+        <img src="https://media4.giphy.com/media/qo4T3YNcaT2IMGZ8tY/200.gif?cid=82a1493bb8d2131f00204923820a619fe513850f79e491f0&rid=200.gif&ct=s"
+            alt="">
+    </div>
+    <div class="loginform ">
+        <form [formGroup]="loginform">
+            <h1>Login</h1>
+            <input name="username" formControlName="username" type="text" placeholder="Username"
+                class="form-control bg-light">
+            <!-- invalid username -->
+            <div *ngIf="this.loginform.get('username')?.touched&&loginform.get('username')?.errors"
+                class="fs-5 text-danger">Please fill the above details</div>
+            <div class="eye-div">
+                <input name="password" id="password" formControlName="password" type="password" placeholder="password"
+                    class="form-control " appShowHidePassword>
+
+            </div>
+            <!-- invalid password -->
+            <div class="fs-5 text-danger" *ngIf="loginform.get('password')?.touched&&loginform.get('password')?.errors">
+                Please fill the above details</div>
+            <div class="button-collections">
+                <div> <button class="loginbutton btn text-light " (click)="login()">Login</button></div>
+                <div> <button class="loginbutton btn  text-light" (click)="register()">Register</button></div>
+
+            </div>
+
+        </form>
+
+
+    </div>
+    <div class="loginform-div">
+        <!-- <img width="500px" src="https://c4.wallpaperflare.com/wallpaper/522/548/990/rick-and-morty-rick-sanchez-tv-adult-swim-wallpaper-preview.jpg" alt=""> -->
+        <!-- <img width=100% src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/12/disney-pinocchio-chicken-little-moana-stitch-aurora-hercules-tinkerbell-ariel-bambi-elsa-zootopia-princess-and-the-frog-moana.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5" alt=""> -->
+    </div>
+</div>

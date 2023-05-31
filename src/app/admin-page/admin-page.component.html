@@ -1,0 +1,348 @@
+<div>
+    <!-- ===HEADER SESSION ====== -->
+
+    <div class="header-session-parent-div" *ngIf="!istrue">
+        <div class="left-session">
+            <div>
+                <i class="fa-solid fa-bars fa-2xl text-light p-3 "></i>
+            </div>
+            <p class="">Admin Dashboard</p>
+        </div>
+        <div class="right-session" (click)="logoutadmin()">
+            <i class="fa-solid fa-user fa-2xl"></i>
+        </div>
+    </div>
+    <!-- ===HEADER SESSION ENDS ====== -->
+
+
+    <!-- parent child relatio btw admin component and view animation list -->
+    <!-- below is the child component -->
+    <app-viewanimationmovies (backbutton)="displayparentdiv()" *ngIf="istrue"
+        [animationdetails]="animation"></app-viewanimationmovies>
+
+
+
+    <!-- =====ASIDE SESSION======== -->
+    <div class="aside-session-parent-div" *ngIf="!istrue">
+        <!-- *ngIf='showdetails' -->
+        <div *ngIf="!isdisplay" class="aside-session-firstchild-div">
+            <img src="https://thumbs.dreamstime.com/b/portrait-young-beautiful-woman-outdoors-green-summer-nature-background-female-beauty-concept-179002155.jpg"
+                alt="Admin pic">
+            <p class="adminname">Michelle Devassia</p>
+            <p class="adminemail">{{adminemail}}</p>
+            <div class="dashboard" (click)="homeclick()">
+                <p>Home</p>
+            </div>
+            <div class="dashboard">
+                <p>Dashboard</p>
+            </div>
+            <div (click)="viewanimationlist()" class="animation">
+                <!--  -->
+                <p>Animation List</p>
+            </div>
+            <div class="userdetails" routerLink="/table">
+                <p>User Details</p>
+            </div>
+            <!-- <div class="admindetails" type="btn">
+                <p>Deleted animations</p>
+            </div> -->
+        </div>
+    </div>
+
+
+
+    <!-- MIDDLE SESSION Details -->
+    <div class="middle-part" *ngIf="!istrue">
+        <div class="middle-session1" *ngIf="showdetails">
+            <!-- we need to hide this details when we click on the animation lists and we need to display it again when animation list is again clicked..So inorder to do that we introduce the concept of ngIf .-->
+            <div>userdetails<br>
+                (<span class="animecount">{{usercount}}</span>)
+            </div>
+
+            <div>Animations<br>
+                (<span class="animecount">{{animecount}}</span>)
+            </div>
+            <div>admindetails
+                <br>
+                (<span class="animecount">{{admincount}}</span>)
+            </div>
+        </div>
+    </div>
+
+    <!-- ====ANIMATION LIST AND SEARCH BUTTON===== -->
+
+
+    <!-- selector of view animation -->
+    <app-viewanimationmovies *ngIf="isdisplay"></app-viewanimationmovies>
+    <!--======= selector ===== -->
+
+    <div *ngIf="!istrue">
+        <div class="middle-session2" *ngIf="displayanimationlist">
+            <div class="middle-session2-input">
+                <input *ngIf="!isdisplay" type="search" placeholder="Search" (keyup)=filter($event)
+                    class="form-control">
+                <button *ngIf="!isdisplay" type="button" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">Add+</button>
+            </div>
+            <!-- ====TABLE SESION   -->
+
+            <div *ngIf="!isdisplay" class="container-div-table">
+                <table class="table-animationdisplay table table-primary">
+                    <thead class="h-50 ">
+                        <tr class="table-success h-50 ">
+                            <th scope="col" class="p-3 text-primary ">SI No:</th>
+                            <th scope="col" class="p-3 text-primary ">COVER PIC</th>
+
+                            <th scope="col" class="p-3 text-primary ">ANIMATION MOVIE NAME</th>
+                            <th scope="col " class="p-3 text-primary ">DATE OF DISPLAY</th>
+                            <th scope="col " class="p-3 text-primary ">VIEWERS COUNT</th>
+                            <th scope="col " class="p-3 text-primary "></th>
+                        </tr>
+
+
+                    </thead>
+                    <tbody>
+
+                        <tr class="table-danger"
+                            *ngFor="let item of myarray | filter : searchitem : 'animename'; let i=index;">
+                            <td class="table-success text-center fs-5">{{i+1}}</td>
+                            <td class="table-primary text-center"><img class="images-animation-cover-pic" width="75"
+                                    [src]="item.animeimage"></td>
+                            <td class="name-animation-table table-danger text-center text-bold">
+                                <strong>{{item.animename}}</strong>
+                            </td>
+                            <td class="table-warning text-center fs-5">{{item.animedateofdisplay}}</td>
+                            <td class="table-info text-center fs-5">100 views</td>
+                            <td class="table-secondary">
+                                <div class="icon-collections">
+                                    <div class="icon-collections1" (click)="eyebutton(item._id)"> <i
+                                            class="fa-solid fa-eye fa-xl mt-4"></i></div>
+                                    <div class="icon-collections2" routerLink="update/{{item._id}}"><i
+                                            class="fa-solid fa-pen-to-square fa-xl mt-4"></i>
+                                    </div>
+                                    <div class="icon-collections3" (click)="deleteanimation(item._id)"><i
+                                            class="fa-solid fa-trash fa-xl mt-4"></i></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- =====MODAL===== -->
+    <!-- Modal for adding animation-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- information about a particular  animation movies -->
+                <div class="modal-body">
+                    <!-- ====forms model=========== -->
+
+
+
+
+                    <form [formGroup]="createanimationmovieform">
+                        <!-- =====animation image background==== -->
+                        <div class="mb-3">
+
+                            <label for="" class="w-100 form-label fs-4 fw-medium">
+                                <input type="text" name="animationbg" formControlName="animationbg"
+                                    class="w-100 form-control fs-5 fw-medium border-secondary"
+                                    placeholder="background image">
+                            </label>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ==name session ===== -->
+                        <div class="mb-3">
+                            <img src="" alt="">
+                            <label for="exampleInputname" class="form-label fs-4 fw-medium">Name</label>
+                            <input type="text" name="animename" formControlName="animename"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputname">
+                        </div>
+                        <!-- ==name session ends ===== -->
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animename')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+                        <!-- ==image session ===== -->
+                        <div class="mb-3">
+                            <img src="" alt="">
+                            <label for="exampleInputimage" class="form-label fs-4 fw-medium">Image</label>
+                            <input type="text" name="animeimage" formControlName="animeimage"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputimage">
+                        </div>
+                        <!-- ==image session ends ===== -->
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animeimage')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+
+                        <!--============= description about animation film====== -->
+                        <div class="mb-3">
+                            <label for="exampleInputdetails" class="form-label fs-4 fw-medium">Overview</label>
+                            <input type="text" name="animedescription" formControlName="animedescription"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputdetails">
+                        </div>
+                        <!--============= description about animation film ends here====== -->
+
+
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animedescription')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+
+                        <!-- ==genre ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputgenre" class="form-label fs-4 fw-medium">genre</label>
+                            <input type="text" name="animegenre" formControlName="animegenre"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputgenre"
+                                aria-describedby="genre">
+                        </div>
+                        <!-- ==genre session ends ===== -->
+
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animegenre')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+
+                        <!-- ==time-duration ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputtimeduration"
+                                class="form-label fs-4 fw-medium">time-duration</label>
+                            <input type="text" name="animetimeduration" formControlName="animetimeduration"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputtimeduration">
+                        </div>
+                        <!-- ==time-duration  session ends ===== -->
+
+
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animetimeduration')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+
+                        <!-- ==play trailor ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputplaytrailor" class="form-label fs-4 fw-medium"> trailor
+                                video</label>
+                            <input type="text" name="animetrailor" formControlName="animetrailor"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputplaytrailor">
+                        </div>
+                        <!-- ==play trailor  session ends ===== -->
+
+                        <!-- MANDATORY TO FILL DETAILS==== -->
+                        <div class="fw-bold fs-5 text-danger mt-0"
+                            *ngIf="this.createanimationmovieform.get('animetrailor')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                            Please fill above details
+                        </div>
+
+
+                        <!-- ==screenplay/story by ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputscreenplay/story" class="form-label fs-4 fw-medium">
+                                screenplay/story
+                                by:</label>
+                            <input type="text" name="animescreenplaystoryby" formControlName="animescreenplaystoryby"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputscreenplay/story">
+                        </div>
+                        <!-- ==screenplay/story by session ends ===== -->
+
+
+                        <!-- ==director ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputdirector" class="form-label fs-4 fw-medium">director:</label>
+                            <input name="animedirector" formControlName="animedirector" type="text"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputdirector">
+                        </div>
+                        <!-- ==director session ends ===== -->
+
+
+
+
+                        <!-- ==screen play by ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputscreenplay" class="form-label fs-4 fw-medium">Screen play:</label>
+                            <input name="animescreenplayby" formControlName="animescreenplayby" type="text"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputscreenplay">
+                        </div>
+                        <!-- ==screenplay session ends ===== -->
+
+
+
+
+
+                        <!-- ==story  by ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputstory" class="form-label fs-4 fw-bold">story by:</label>
+                            <input name="animestoryby" formControlName="animestoryby" type="text"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputstory">
+                        </div>
+                        <!-- ==story session ends ===== -->
+
+
+                        <!-- ==writer ===== -->
+                        <div class="mb-3">
+                            <label for="exampleInputwriter" class="form-label fs-4 fw-bold">Writer:</label>
+                            <input name="animewriter" formControlName="animewriter" type="text"
+                                class="form-control fs-5 fw-medium border-secondary" id="exampleInputwriter">
+                        </div>
+                        <!-- ==writer session ends ===== -->
+
+
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="createanimation()"
+                        data-bs-dismiss="modal">Create</button>
+                    <button type="button" class="btn btn-primary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====MODAL===== -->
+    <!-- Modal for updating animation-->
+
+</div>

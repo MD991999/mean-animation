@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Date of birth</th>
+      <th scope="col">Courses</th>
+      <th scope="col">Gender</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="primary" *ngFor="let item of maintable">
+      <!-- <th scope="row">{{i++}}</th> -->
+      <td class="fs-5 ">{{item.uname}}</td>
+      <td class="fs-5 ">{{item.email}}</td>
+      <td class="fs-5 ">{{item.pswd}}</td>
+      <td class="fs-5 ">{{item.dob}}</td>
+      <td class="fs-5 ">{{item.option}}</td>
+      <td class="fs-5 ">{{item.gender}}</td>
+
+    </tr>
+<button class="btn btn-success d-flex flex-row" (click)="generatepdf()">Print</button>
+  </tbody>
+</table>
+<!-- <div class="download-share">
+  <div class="btn">Download</div>
+  <div class="btn">Share</div>
+</div> -->
+<!-- <share-buttons [url]="shareUrl" [title]="shareTitle" [description]="shareDescription">
+  <share-button telegram></share-button>
+  <share-button whatsapp></share-button>
+</share-buttons> -->

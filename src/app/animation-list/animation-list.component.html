@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<!-- animation page design -->
+<!-- here we bind the user defined event emitter(backbutton)  and assign it to a function called (viewallanimation())-->
+<app-viewanimationmovies (backbutton)="viewallanimation()" *ngIf="isvisible" [animationdetails]="animation" ></app-viewanimationmovies>
+<div *ngIf="!isvisible">
+    <div class="parent-div">
+        <div class="container p-5 d-flex justify-content-center ">
+            <input type="text" placeholder="Search" (keyup)=filter($event)
+                class="form-control w-50 text-dark fw-bold fs-5 border border-secondary">
+        </div>
+        <div class="p-5">
+            <div class="image-overview-animation w-100  row  border mt-3 " *ngFor="let item of myarray |filter:searchitem:animename">
+                <!-- -->
+                <!-- trial -->
+                <!-- <div (click)="constfunction($event)"> -->
+                <div  class="col-2">
+                    <a ><img width="70%" class="rounded" (click)="viewanimation(item._id)" [src]="item.animeimage" alt="pussintheboots"></a>
+                </div>
+                <!-- </div> -->
+                <!-- trial ends -->
+                <div class="col-10 p-3">
+                    <a>
+                        <h1 class="heading">{{item.animename}}</h1>
+                    </a>
+                    <p class="date">{{item.animedateofdisplay}}</p>
+                    <br>
+
+                    <p>{{item.animedescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- please login div -->
+    <div *ngIf="ispresent" class="login-information">
+        <div>
+            <img src="https://i.pinimg.com/originals/57/06/53/5706537e2eabdad10a00fa8b1f2cd40e.gif" alt="">
+
+        </div>
+        <div>
+            <h1>Please login to see more....</h1>
+            <p><a type="btn" class="btn btn-success" (click)="okbutton()">OK</a></p>
+        </div>
+    </div>
+</div>

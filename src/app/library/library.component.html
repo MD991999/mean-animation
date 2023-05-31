@@ -1,0 +1,149 @@
+<!-- <app-navbar></app-navbar> -->
+<app-viewanimationmovies *ngIf="isvisible" [animationdetails]="animation"
+    (backbutton)="backbuttoncall()"></app-viewanimationmovies>
+<div class="parent-div" *ngIf="!isvisible">
+    <div class="hamburgar">
+
+        <i class="fa-solid fa-bars fa-2xl"></i>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <div routerLink="">
+                <i class="fa-solid fa-house fa-xl"></i> &nbsp; &nbsp;&nbsp;
+                <p>Home</p>
+            </div>
+            <!-- <div>
+                <i class="fa-solid fa-credit-card"></i> &nbsp; &nbsp;&nbsp;
+                <p>Purchases</p>
+            </div> -->
+            <div (click)="library()">
+                <i class="fa-solid fa-book fa-xl"></i> &nbsp; &nbsp;&nbsp;
+                <p>Library</p>
+            </div>
+            <div (click)="displayhistoryonly()">
+                <i class="fa-solid fa-clock-rotate-left fa-xl"></i>&nbsp; &nbsp;&nbsp;
+                <p>History</p>
+            </div>
+
+            <div (click)="displaywatchlater()">
+                <i class="fa-regular fa-clock fa-xl"></i> &nbsp; &nbsp;&nbsp;
+                <p>Watchlater</p>
+            </div>
+            <!-- <div>
+                <i class="fa-solid fa-download fa-xl"></i> &nbsp; &nbsp;&nbsp;
+                <p>Downloads</p>
+            </div> -->
+        </div>
+        <div class="col-10">
+            <div>
+                <!-- history session -->
+                <div class="History-session" *ngIf="isdisplay">
+                    <div class="History-session-anticlock">
+                        <div class="anticlock">
+                            <i class="fa-solid fa-clock-rotate-left fa-xl"></i> &nbsp;&nbsp;&nbsp;
+                            <!-- </div>
+                        <div> -->
+                            <div>History</div>
+                        </div>
+                        <div class="text-center m-5 historyempty" *ngIf="alllistinhistory.length==0">
+                            <h1>Nothing in the history</h1>
+                        </div>
+
+                        <div class="delete-button" (click)="deletehistory(_id)">
+                            <button class="fs-5 btn btn-danger w-100">Delete</button>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="alllistinhistory.length!=0">
+                        <div class="col-3  history-details" *ngFor="let data of alllistinhistory">
+                            <div>
+                                <!-- <img src="https://movies.universalpictures.com/media/02-smb-dm-mobile-banner-1080x745-pl-f01-022723-63fe3cbc4df54-1.jpg"
+                                    alt=""> -->
+                                <!-- <video autoplay loop controls preload="metadata" [poster]="data.animeimage"
+                                    [src]="data.animetrailor"></video> -->
+                                <img class="historyimage" [src]="data.animeimage" [alt]="data.animename">
+                            </div>
+                            <div class="heading-parent-div">
+                                <h1 class="heading-animation">{{data.animename}}</h1>
+                                <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
+
+                            </div>
+                            <div class="p-2">{{data.historydate}}</div>
+                            <div class="fs-5 view-delete">
+                                <!-- <div (click)="eyebutton(_id)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </div> -->
+                                <div class="trashcan" (click)="deletebutton(_id,data._id)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+
+                            <!-- <div class="fs-5">Views</div> -->
+
+                        </div>
+
+
+                    </div>
+                    <div class="backbutton" (click)="backbutton()">
+                        <button class="btn btn-success ">Back</button>
+                    </div>
+
+                </div>
+                <hr>
+
+                <!-- watchlater -->
+
+                <div class="History-session" *ngIf="ispresent">
+                    <div class="History-session-anticlock">
+                        <div class="anticlock">
+                            <i class="fa-regular fa-clock fa-xl"></i> &nbsp;&nbsp;&nbsp;
+                            <!-- </div>
+                        <div> -->
+                            <div>Watchlater</div>&nbsp;&nbsp;&nbsp;
+                            <!-- <p class="text-danger">{{alllistinwatchlater.length}}</p> -->
+                        </div>
+                        <div class="delete-button" (click)="watchlaterhistory(_id)">
+                            <button class="fs-5 btn btn-danger w-100">Delete</button>
+                        </div>
+                    </div>
+                    <div class="text-center m-5 watchlaterempty" *ngIf="alllistinwatchlater.length===0">
+                        <h1>Watchlater is empty</h1>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-3  history-details" *ngFor="let item of alllistinwatchlater">
+
+
+                            <div>
+                                <!-- <video autoplay loop controls preload="metadata" [poster]="item.animeimage"
+                                    [src]="item.animetrailor"></video> -->
+                                <img class="historyimage" [src]="item.animeimage" [alt]="item.animename">
+
+                            </div>
+
+                            <div class="heading-parent-div">
+                                <h1 class="heading-animation">{{item.animename}}</h1>
+                                <!-- <i class="fa-solid fa-ellipsis-vertical"></i> -->
+
+                            </div>
+                            <div class="fs-5">{{item.watchlateradddate}}</div>
+                            <div class="fs-5 view-delete">
+                                <div class="eyediv" (click)="eyebutton(item._id)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </div>
+                                <div class="trashcan" (click)="deletebuttonwatchlater(_id,item._id)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="backbutton" (click)="backbutton()">
+                        <button class="btn btn-success ">Back</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

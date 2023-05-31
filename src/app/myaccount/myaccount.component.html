@@ -1,0 +1,24 @@
+<div class="parent-div">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4" *ngIf="isdisplay">
+            <!-- <div (click)="crossclick()"><i class="icon2 fa-solid fa-x "></i></div> -->
+            <div>
+                <div class="div-image">
+                    <img src="https://i.pinimg.com/564x/c4/d9/07/c4d90797779983838b48692d61d2e817.jpg" alt="">
+                </div>
+                <!-- <div (click)="crossclick()" class="cross"><i class="icon2 fa-solid fa-x fa-xl"></i></div> -->
+
+            </div>
+            <p class="username-email text-center ">{{uname}}</p>
+            <p class="username-email text-center ">{{email}}</p>
+            <div class="first-div-session">
+                <p class="btn btn-danger w-100" (click)="logout()">Sign Out</p>
+                <!-- <p>Switch Account</p> -->
+                <p class="btn btn-success w-100" routerLink="/library/{{_id}}">Library</p>
+            </div>
+        </div>
+
+    </div>
+</div>

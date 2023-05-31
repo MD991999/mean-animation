@@ -1,0 +1,166 @@
+.parent-div {
+    padding: 15px;
+}
+
+.hamburgar {
+    position: fixed;
+    margin: 0px;
+    color: rgb(12, 11, 11);
+}
+
+.hamburgar i {
+    cursor: pointer;
+
+}
+
+
+.col-10 {
+    position: absolute;
+    left: 200px;
+
+}
+
+.row {
+    padding: 10px;
+    width: 100%;
+}
+
+.col-2 {
+    position: fixed;
+    top: 50px;
+    left: 0;
+}
+
+.col-2 div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 150px;
+    border: 1px solid gray;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.anticlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.History-session-anticlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.history-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+    width: 400px;
+    /* border: 1px solid ; */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+    background-color: lightblue;
+
+}
+
+.history-details div:nth-child(3){
+    font-size: 20px;
+    font-weight: 500;
+    color: blue;
+}
+
+.heading-animation {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.heading-parent-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.History-session {
+    margin-bottom: 70px;
+    padding: 30px;
+}
+
+.historyempty {
+    color: red;
+    position: absolute;
+    top: 100px;
+    left: 35%;
+    font-size: 25px;
+    /* left: 50%; */
+    text-align: center;
+    font-weight: 600;
+}
+
+.watchlaterempty {
+    color: red;
+    position: absolute;
+    top: 200px;
+    left: 35%;
+    font-size: 25px;
+    /* left: 50%; */
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.view-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 200px;
+    align-items: center;
+}
+
+.view-delete div {
+    /* width:5%; */
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.trashcan {
+    /* background-color: green; */
+    color: rgb(105, 12, 12);
+
+}
+
+
+
+.eyediv {
+    color: green;
+}
+
+.historyimage {
+    height: 100px;
+    object-fit: cover;
+
+}
+.backbutton{
+    float: right;
+}

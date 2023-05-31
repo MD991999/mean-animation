@@ -1,0 +1,51 @@
+.col-2 {
+    margin-left: -13px;
+}
+
+.image-overview-animation {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.col-10 h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(94, 30, 62);
+}
+
+.col-10 p {
+    font-weight: 600;
+    font-size: 20px;
+
+}
+
+.date {
+    color: rgb(101, 99, 99);
+}
+
+/* please login firm */
+.login-information {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    height: 300px;
+    font-size: 30px;
+    font-weight: 600;
+    /* border: 1px solid black; */
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    text-align: center;
+    background-color: rgba(127, 89, 163);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.login-information h1 {
+    color: black;
+}
+
+.login-information a {
+    color: green;
+    background-color: black;
+}

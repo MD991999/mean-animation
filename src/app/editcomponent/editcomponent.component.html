@@ -1,0 +1,295 @@
+<div class="main-body">
+
+</div>
+
+<!-- <app-navbar></app-navbar> -->
+<div class="main-parent">
+    <div class="background-image">
+        <img class="animation-background" [src]="animationdetails.animationbg" [alt]="animationdetails.animationbg">
+    </div>
+    <div class="row parent-div">
+        <!-- <img class="animation-background" [src]="animationdetails.animationbg" [alt]="animationdetails.animationbg"> -->
+
+        <div class="col-3 child1-div">
+            <div class="image-animation">
+                <img [src]="animationdetails.animeimage" alt="">
+            </div>
+        </div>
+
+        <div class="col-9 child2-div">
+            <div class="child2-div-subchild">
+                <h1 id="animename" class="animationmoviename-heading">{{animationdetails.animename}}</h1>
+                <div class="genre-dots">
+                    <!-- <img class="" src="https://pngimg.com/uploads/dot/small/dot_PNG29.png" alt=""> -->
+                    <p #animenamegenre value>Animation, Adventure, Comedy, Family </p>
+                    <img class="" src="https://pngimg.com/uploads/dot/small/dot_PNG29.png" alt="">
+                    <p>{{animationdetails.animetimeduration}}</p>
+                </div>
+                <div class="details-user-animation">
+                    <div class="icons">
+                        <!-- <div class="d-flex flex-row justify-content-center  "type="btn">
+                            <i class="fa-regular fa-thumbs-up fa-xl p-3"></i> &nbsp; <p>100K</p> 
+                        </div> -->
+                        <div>
+                            Share &nbsp;<i class="fa-solid fa-arrow-right"></i>
+
+                            <!-- <img class="wishlist"
+                                src="https://media.istockphoto.com/id/1410655294/vector/wishlist-icon-in-flat-style-love-letter-like-document-vector-illustration-on-white-isolated.jpg?s=612x612&w=0&k=20&c=IqjzBiHAb3pFcx6peDqHFbN5M9Dr4MmapyjZzVLgdZQ="
+                                alt=""> -->
+                        </div>
+                        <div class="download-button">
+                            Download &nbsp;<i class="fa-solid fa-arrow-down-to-line"></i>
+
+                            <!-- <img class="wishlist"
+                                src="https://media.istockphoto.com/id/1410655294/vector/wishlist-icon-in-flat-style-love-letter-like-document-vector-illustration-on-white-isolated.jpg?s=612x612&w=0&k=20&c=IqjzBiHAb3pFcx6peDqHFbN5M9Dr4MmapyjZzVLgdZQ="
+                                alt=""> -->
+                        </div>
+                    </div>
+                    <div class="icon-trailor">
+                        <i class=" fa-solid fa-play "></i>
+                        <a [href]="animationdetails.animetrailor">
+                            <p class="fs-5"> Play Trailor</p>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <h1 class="overview">Overview</h1>
+                    <p class="overview-paragraph">{{animationdetails.animedescription}}</p>
+                </div>
+                <div class="film-details-person-details">
+                    <div>
+                        <p>{{animationdetails.animescreenplaystoryby}}</p>
+                        <p class="heading1">Screenplay, Story</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animedirector}}</p>
+                        <p class="heading1">Director</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animescreenplayby}}</p>
+                        <p class="heading1">Screenplay</p>
+                    </div>
+                    <div>
+                        <p>{{animationdetails.animestoryby}}</p>
+                        <p class="heading1"> Story</p>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <!-- here we use child to parent iteractions -->
+                <!-- we call a function ,and in the ts session we will define logic for this function-->
+                <button (click)="backarrow()" class="btn btn-success m-2"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Update
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<!-- Modal for updating animation-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- information about a particular  animation movies -->
+            <div class="modal-body">
+                <!-- ====forms model=========== -->
+
+
+
+
+                <form [formGroup]="createanimationmovieform">
+                    <!-- =====animation image background==== -->
+                    <div class="mb-3">
+
+                        <label for="" class="w-100 form-label fs-4 fw-medium">
+                            <input type="text" name="animationbg" [(ngModel)]="animationdetails.animationbg" formControlName="animationbg"
+                                class="w-100 form-control fs-5 fw-medium border-secondary"
+                                placeholder="background image">
+                        </label>
+                    </div>
+
+
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animationbg')?.touched&&this.createanimationmovieform.get('animationbg')?.errors">
+                        Please fill above details
+                    </div>
+
+
+
+
+
+
+
+
+                    <!-- ==name session ===== -->
+                    <div class="mb-3">
+                        <img src="" alt="">
+                        <label for="exampleInputname" class="form-label fs-4 fw-medium">Name</label>
+                        <input type="text" name="animename" [(ngModel)]="animationdetails.animename" formControlName="animename"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputname">
+                    </div>
+                    <!-- ==name session ends ===== -->
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animename')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+                    <!-- ==image session ===== -->
+                    <div class="mb-3">
+                        <img src="" alt="">
+                        <label for="exampleInputimage" class="form-label fs-4 fw-medium">Image</label>
+                        <input type="text" name="animeimage" [(ngModel)]="animationdetails.animeimage" formControlName="animeimage"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputimage">
+                    </div>
+                    <!-- ==image session ends ===== -->
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animeimage')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+
+                    <!--============= description about animation film====== -->
+                    <div class="mb-3">
+                        <label for="exampleInputdetails" class="form-label fs-4 fw-medium">Overview</label>
+                        <input type="text" name="animedescription" [(ngModel)]="animationdetails.animedescription" formControlName="animedescription"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputdetails">
+                    </div>
+                    <!--============= description about animation film ends here====== -->
+
+
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animedescription')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+
+                    <!-- ==genre ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputgenre" class="form-label fs-4 fw-medium">genre</label>
+                        <input type="text" name="animegenre" [(ngModel)]="animationdetails.animegenre" formControlName="animegenre"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputgenre"
+                            aria-describedby="genre">
+                    </div>
+                    <!-- ==genre session ends ===== -->
+
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animegenre')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+
+                    <!-- ==time-duration ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputtimeduration" class="form-label fs-4 fw-medium">time-duration</label>
+                        <input type="text" name="animetimeduration"  [(ngModel)]="animationdetails.animetimeduration" formControlName="animetimeduration"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputtimeduration">
+                    </div>
+                    <!-- ==time-duration  session ends ===== -->
+
+
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animetimeduration')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+
+                    <!-- ==play trailor ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputplaytrailor" class="form-label fs-4 fw-medium"> trailor
+                            video</label>
+                        <input type="text" name="animetrailor" [(ngModel)]="animationdetails.animetrailor" formControlName="animetrailor"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputplaytrailor">
+                    </div>
+                    <!-- ==play trailor  session ends ===== -->
+
+                    <!-- MANDATORY TO FILL DETAILS==== -->
+                    <div class="fw-bold fs-5 text-danger mt-0"
+                        *ngIf="this.createanimationmovieform.get('animetrailor')?.touched&&this.createanimationmovieform.get('animename')?.errors">
+                        Please fill above details
+                    </div>
+
+
+                    <!-- ==screenplay/story by ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputscreenplay/story" class="form-label fs-4 fw-medium">
+                            screenplay/story
+                            by:</label>
+                        <input type="text" name="animescreenplaystoryby" [(ngModel)]="animationdetails.animescreenplaystoryby" formControlName="animescreenplaystoryby"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputscreenplay/story">
+                    </div>
+                    <!-- ==screenplay/story by session ends ===== -->
+
+
+                    <!-- ==director ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputdirector" class="form-label fs-4 fw-medium">director:</label>
+                        <input name="animedirector"  [(ngModel)]="animationdetails.animedirector" formControlName="animedirector" type="text"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputdirector">
+                    </div>
+                    <!-- ==director session ends ===== -->
+
+
+
+
+                    <!-- ==screen play by ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputscreenplay" class="form-label fs-4 fw-medium">Screen play:</label>
+                        <input name="animescreenplayby" [(ngModel)]="animationdetails.animescreenplayby" formControlName="animescreenplayby" type="text"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputscreenplay">
+                    </div>
+                    <!-- ==screenplay session ends ===== -->
+
+
+
+
+
+                    <!-- ==story  by ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputstory" class="form-label fs-4 fw-bold">story by:</label>
+                        <input name="animestoryby" [(ngModel)]="animationdetails.animestoryby" formControlName="animestoryby" type="text"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputstory">
+                    </div>
+                    <!-- ==story session ends ===== -->
+
+
+                    <!-- ==writer ===== -->
+                    <div class="mb-3">
+                        <label for="exampleInputwriter" class="form-label fs-4 fw-bold">Writer:</label>
+                        <input name="animewriter" [(ngModel)]="animationdetails.animewriter" formControlName="animewriter" type="text"
+                            class="form-control fs-5 fw-medium border-secondary" id="exampleInputwriter">
+                    </div>
+                    <!-- ==writer session ends ===== -->
+
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="updateanimation(animationdetails._id)"
+                    data-bs-dismiss="modal">Update</button>
+                <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+.parent-div {
+    background-image: url('https://wallpaperaccess.com/full/2378748.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    padding: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(144, 238, 144, 0.5);
+
+}
+
+.loginform {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+  width:350px;
+    height: 350px;
+    padding: 30px;
+    flex-direction: column;
+    background-color: rgba(91, 153, 74, 0.9);
+    border-radius: 5px;
+    position: absolute;
+    top: 180px;
+}
+
+.loginform h1 {
+    font-size: 40px;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0;
+    margin: 0;
+}
+
+.loginform input {
+    border: 2px solid rgb(39, 113, 39);
+    mix-blend-mode: multiply;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    /* width:100%; */
+}
+
+.image-gif {
+    position: absolute;
+    top: 80px;
+z-index: 200;
+}
+.loginform-div{
+    position: absolute;
+    right:0;
+    
+}
+.loginform-div img{
+    object-fit: cover;
+}
+.loginbutton{
+   display: flex;
+   flex-direction:row;
+   /* justify-content: center; */
+   /* align-items: center; */
+   /* margin-left:90px; */
+   width:60px;
+   letter-spacing: 1px;
+   padding: 10px;
+}
+.eye-div{
+    display: flex;
+    flex-direction: row;
+    width: 106%;
+    /* background-color: aqua; */
+}
+#password{
+    /* width: 100%; */
+    width:300px;
+}
+.button-collections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.button-collections button{
+    width: 70px;
+
+}
+.button-collections div:nth-child(2){
+background-color: rgb(50, 6, 6);
+color: white;
+border-radius: 5px;
+}
+.button-collections div:nth-child(1){
+    background-color: rgb(12, 77, 25);
+    color: white;
+    border-radius: 5px;
+    }

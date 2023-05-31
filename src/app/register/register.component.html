@@ -1,0 +1,130 @@
+<app-navbar></app-navbar>
+<div class="register-parent-div">
+  <div class="row">
+
+    <div class="col-6">
+      <!-- <img src="https://i.pinimg.com/564x/26/76/e4/2676e4bedcd00338e96a74999a2e232b.jpg" alt=""> -->
+      <!-- <img src="https://i.pinimg.com/564x/6c/90/53/6c90532c3e5f461c6a0821d99f108b09.jpg" alt=""> -->
+
+      <h1>Registration</h1>
+      <form id="form"class="w-full max-w-sm mx-auto mt-1 p-2">
+        <!-- username div -->
+        <div class="mb-4">
+          <label class="block text-gray-200 text-xl font-lg mb-2 tracking-wider" for="username">
+            Username
+          </label>
+          <input name="uname" [(ngModel)]="uname"
+            class="shadow appearance-none bg-gray-300 border tracking-wider font-bold rounded w-full py-2 px-3 text-gray-900 text-xl leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="text" placeholder="">
+        </div>
+
+        <!-- email div -->
+        <div class="mb-4">
+          <label class="block text-gray-200 text-xl font-lg mb-2 tracking-wider" for="email">
+            Email
+          </label>
+          <input name="email" [(ngModel)]="email"
+            class="shadow appearance-none bg-gray-300 border tracking-wider font-bold rounded w-full py-2 px-3 text-gray-900 text-xl leading-tight focus:outline-none focus:shadow-outline"
+            id="email" type="email" placeholder="">
+        </div>
+        <!-- </div> -->
+
+        <!-- passwordd div -->
+        <div class="mb-4">
+          <label class="block text-gray-200 text-xl font-lg mb-2 tracking-wider" for="password">
+            Password
+          </label>
+          <input name="pswd" [(ngModel)]="pswd"
+            class="shadow appearance-none bg-gray-300 border tracking-wider font-bold rounded w-full py-2 px-3 text-gray-900 text-xl  leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="">
+        </div>
+
+
+        <!--confirm passwordd div -->
+        <div class="mb-4">
+          <label class="block text-gray-200 text-xl font-lg mb-2 tracking-wider" for="cpassword">
+            Confirm Password
+          </label>
+          <input name="cpswd" [(ngModel)]="cpswd"
+            class="shadow appearance-none bg-gray-300 border tracking-wider font-bold rounded w-full py-2 px-3 text-gray-900 text-xl  leading-tight focus:outline-none focus:shadow-outline"
+            id="cpassword" type="password" placeholder="">
+        </div>
+
+        <!-- dATE OF BIRTH div -->
+        <div class="mb-4">
+          <label class="block text-gray-200 text-xl font-lg mb-2 tracking-wider" for="password">
+            Date of Birth
+          </label>
+          <input name="dob" [(ngModel)]="dob"
+            class="shadow appearance-none bg-gray-300 border tracking-wider font-bold rounded w-full py-2 px-3 text-gray-900 text-xl  leading-tight focus:outline-none focus:shadow-outline"
+            id="date" type="date" placeholder="">
+        </div>
+
+
+
+
+        <!--area of interest div -->
+        <div class="mb-4">
+          <label for="" class=" block text-black text-xl font-lg tracking-wider font-lg mb-2 tracking-wider">
+            <select [(ngModel)]="option" name="option" id="animetype">
+              <option class="w-full outline-none" value="">Select an option</option>
+              <option value="Action">Action</option>
+              <option value="Romane">Romane</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Adventure">Adventure</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- gender div -->
+        <div class="mb-4 ">
+          <label class="block text-gray-200 text-xl font-lg tracking-wider font-lg mb-2 tracking-wider" for="gender">
+            Gender
+          </label>
+          <div class="mb-4 gender-details">
+            <div>
+              <input value="male" name="gender" [(ngModel)]="gender"  class="" id="male" type="radio">
+              <label class="block text-gray-200 text-xl font-lg tracking-wider font-lg mb-2 tracking-wider">
+                Male
+              </label>
+            </div>
+            <div>
+              <input value="female"name="gender" [(ngModel)]="gender"  class="" id="female" type="radio">
+              <label class="block text-gray-200 text-xl font-lg tracking-wider font-lg mb-2 tracking-wider"
+                >
+                Female
+              </label>
+            </div>
+            <div>
+              <input value="Not to disclose"name="gender" [(ngModel)]="gender" class="" id="unwilling" type="radio">
+              <label class="block text-gray-200 text-xl font-lg tracking-wider font-lg mb-2 tracking-wider"
+               >
+                Prefer not to disclose
+              </label>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-transparent   shadow-outline hover:bg-blue-700 text-gray-200 font-xl  tracking-wider  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            (click)="register()" type="button">
+            Register
+          </button>
+        </div>
+      </form>
+
+
+
+
+    </div>
+    <div class="col-6">
+      <img class="image1" src="https://i.pinimg.com/564x/26/76/e4/2676e4bedcd00338e96a74999a2e232b.jpg" alt="">
+      <img class="image2" src="https://i.pinimg.com/564x/6c/90/53/6c90532c3e5f461c6a0821d99f108b09.jpg" alt="">
+    </div>
+  </div>
+</div>
+ygvhbcjkc

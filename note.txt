@@ -1,0 +1,1 @@
+In general case,from parent to child ,datas are transfered but from child to parent ,event is transfered.

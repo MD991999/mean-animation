@@ -1,0 +1,82 @@
+<div class="header-session" >
+    <div class="left-session">
+        <div class="left-sesion-sub-div">
+            <div (click)="hamburgerclick()"> <i class="icon1 fa-solid fa-bars left-session-i fa-2xl"></i></div>
+            <div (click)="crossclick()"><i class="icon2 fa-solid fa-x fa-2xl"></i></div>
+
+        </div>
+    </div>
+    <div class="middle-session">
+        <ul>
+            <li routerLink="">Home</li>
+            <li class="animationmovies" routerLink="/animation-list">Animation Movies</li>
+            <li routerLink="/login">Log In</li>
+            <li routerLink="/register">Register</li>
+            <li data-bs-toggle="modal" data-bs-target="#staticBackdrop">Admin</li>
+        </ul>
+    </div>
+    <div class="last-session" >
+     <div *ngIf="username"> <p>Welcome {{username}}</p> </div> 
+      <div (click)="logout()">
+        <i class="user-icon fa-solid fa-user fa-xl"></i>
+      </div>  
+    </div>
+
+</div>
+<app-myaccount *ngIf="isdisplay"></app-myaccount>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-3 text-success" id="staticBackdropLabel">ADMIN PAGE</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- ====FORM TAG========== -->
+            <form>
+                <div class="mb-3 p-2 mt-2">
+                    <label for="exampleInputEmail1" class="form-label fs-4 fw-bolder">Email address</label>
+                    <input name="emailid" [(ngModel)]="emailid"type="email" class="form-control h-50 p-3 fs-4 border border-secondary" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="text-success fs-4 fw-bolder me-1">
+                    {{admincorrectdata}}
+                </div>
+                <div class="mb-3 p-2 mt-2">
+                    <label for="exampleInputPassword1" class="form-label fs-4 fw-bolder">Password</label>
+                    <input name="pswd" [(ngModel)]="pswd"type="password" class="form-control h-50 p-3 fs-4 border border-secondary" id="exampleInputPassword1">
+                </div>
+               <div class="text-danger fs-4 fw-bolder  me-1">
+                {{adminincorrectdata}}
+               </div>
+
+               <!-- otp div -->
+               <div *ngIf="ispresent">
+               <p class="text-danger fs-5 fw-bold">Please copy this code:{{totp}}</p>
+
+               <div class="otp-div">
+                <form action="" [formGroup]="continueadminform">
+                <input  maxlength="1" id="firstinputnumber"name="firstinputnumber" formControlName="firstinputnumber" id="otp-number-div1" class="otp-number-div">
+                <input name="secondinputnumber" formControlName="secondinputnumber"id="otp-number-div2" class="otp-number-div">
+                <input name="thirdinputnumber" formControlName="thirdinputnumber" id="otp-number-div3" class="otp-number-div">
+                <input name="forthinputnumber" formControlName="forthinputnumber"id="otp-number-div4" class="otp-number-div">
+                <input name="fifthinputnumber" formControlName="fifthinputnumber"id="otp-number-div5" class="otp-number-div">
+                <input name="sixthinputnumber" formControlName="sixthinputnumber"id="otp-number-div6" class="otp-number-div">
+            </form>
+               </div>
+            </div>
+                <button *ngIf="!iscontinue" type="submit" (click)="submit()"class="btn btn-primary p-2 ms-2">Log In</button>
+          
+              <div  *ngIf="iscontinue" > <button type="submit" (click)="continue()"class="btn btn-primary p-2 ms-2">Continue</button>
+              </div> 
+            </form>
+            <!-- ==========FORM TAG  ENDS======== -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

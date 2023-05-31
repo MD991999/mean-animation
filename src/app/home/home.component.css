@@ -1,0 +1,259 @@
+.parent-div {
+    width: 100%;
+    height: 100vh;
+    background-color: #183c55;
+    position: relative;
+    overflow: hidden;
+}
+
+.cloud-image-div {
+    z-index: 199;
+    perspective: 500px;
+    mix-blend-mode: multiply;
+}
+
+.cloud-image-div img:nth-child(2) {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transform: translateZ(-100px);
+    transform-style: preserve-3d;
+}
+
+.cloud-image-div img:nth-child(1) {
+    transform: translateZ(-250px);
+    transform-style: preserve-3d;
+
+}
+
+.cloud-image-div img:nth-child(3) {
+    position: absolute;
+    left: 40%;
+    top: 70%;
+    transform: translateZ(-80px);
+    transform-style: preserve-3d;
+
+}
+
+.cloud-image-div img:nth-child(4) {
+    position: absolute;
+    left: 50%;
+    top: -150px;
+    transform-style: preserve-3d;
+    transform: translateZ(-600px);
+}
+
+.cloud-image-div img:nth-child(5) {
+    position: absolute;
+    left: -70px;
+    top: 150%;
+    transform: translateZ(-170px);
+    transform-style: preserve-3d;
+
+}
+
+.second-last-row {
+    width: 100%;
+    height: 60px;
+    /* background-color: #93c5fd; */
+    background-color: lightskyblue;
+    bottom: 110px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+}
+
+.last-last-row {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    /* background-color: #60a5fa; */
+    background-color: lightseagreen;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    /* top:1000px; */
+}
+
+.final-session-last-div-images-collection {
+    width: 100%;
+    perspective: 500px;
+    mix-blend-mode: multiply;
+    /* background-color: lightblue; */
+
+}
+
+.anna {
+    width: 14%;
+    position: absolute;
+    bottom: -170px;
+    left: -30px;
+    /* z-index: 198px; */
+    transform: translateZ(0);
+    transform-style: preserve-3d;
+    /* animation: anna 2s linear 1; */
+}
+
+@keyframes anna {
+    0% {
+        transform: translateY(300px);
+    }
+
+    100% {
+        transform: translateY(0);
+/* image-orientation:from-image; */
+    }
+}
+
+.elsa {
+    width: 12%;
+    position: absolute;
+    bottom: -100px;
+    /* right:0px; */
+    /* right:100px; */
+    left: 65px;
+    transform: translateZ(-20px);
+    /* z-index: 197px; */
+    transform-style: preserve-3d;
+    /* animation: anna 2s linear 1; */
+
+}
+
+.guitar {
+    position: absolute;
+    width: 14%;
+    bottom: -120px;
+    left: 200px;
+    transform: translateZ(-100px);
+    transform-style: preserve-3d;
+    /* animation: anna 2s linear 1; */
+
+    transform: rotate(45deg);
+}
+
+/* .final-session-row{
+    width:100%;
+    perspective: 500px;
+} */
+.coco {
+    position: absolute;
+    width: 16%;
+    bottom: -100px;
+    left: 135px;
+    transform: translateZ(-10px);
+    /* transform-style: preserve-3d; */
+    /* animation: anna 2s linear 1; */
+
+}
+
+.coco-skeleton {
+    position: absolute;
+    width: 16%;
+    bottom: -120px;
+    left: 250px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.rat {
+    position: absolute;
+    width: 20%;
+    bottom: -40px;
+    left: 310px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+
+}
+
+.lion {
+    position: absolute;
+    width: 28%;
+    bottom: -120px;
+    left: 460px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+
+}
+
+.tangled {
+    position: absolute;
+    width: 22%;
+    bottom: -210px;
+    right: 90px;
+    transform: translateZ(0px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.russell {
+    position: absolute;
+    width: 18%;
+    bottom: -90px;
+    right: 90px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.ant {
+    position: absolute;
+    width: 16%;
+    bottom: -90px;
+    right: 430px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.tarzan {
+    position: absolute;
+    width: 20%;
+    bottom: -30px;
+    right: 470px;
+    transform: translateZ(-20px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.toy {
+    position: absolute;
+    width: 20%;
+    bottom: -90px;
+    right: 250px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.soul{
+    position: absolute;
+    width: 20%;
+    bottom: -100px;
+    right: 350px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.olaf{
+    position: absolute;
+    width: 12%;
+    bottom: -50px;
+    right: 350px;
+    transform: translateZ(-10px);
+    /* animation: anna 2s linear 1; */
+
+}
+
+.final-session-row {
+    width: 110%;
+
+}
+.toontheatre{
+font-size: 80px;
+font-family: 'EB Garamond', serif;
+font-weight: 600;
+}

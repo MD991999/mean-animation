@@ -1,0 +1,131 @@
+--root {
+    --mustardyellow: #FFDB58;
+    /* (Mustard Yellow) */
+    --olivegreen: #808000;
+    /* (Olive Green) */
+    --rustyred: #B7410E;
+    /* (Rusty Red) */
+    --white: #FFFFFF;
+    /* (White) */
+    --lightgray: #D3D3D3;
+    /* (Light Gray) */
+    --royalblue: #4169E1;
+    /* (Royal Blue) */
+    --electricblue: #00FFFF;
+    /* (Electric Blue) */
+    --vibrantyello: #FFD700;
+    /* (Vibrant Yellow) */
+    --hotpink: #FF69B4;
+    /* (Hot Pink) */
+    --brightorange: #FFA500;
+    /* (Bright Orange) */
+    --limegreen: #00FF00;
+    /* (Lime Green) */
+    --deeppurple: #800080;
+    /* (Deep Purple) */
+    --charcoalgray: #36454F;
+    /* (Charcoal Gray) */
+    --deepblue: #1E90FF;
+    /* (Deep Blue) */
+    --bloodred: #8B0000;
+    /* (Blood Red) */
+}
+.register-parent-div{
+    width:100%;
+    height:140vh;
+    /* background:linear-gradient(to bottom, #370437, #5a0b5a,#6a1d43); */
+    background-color: #183c55;
+    background-size: cover;
+}
+.col-6 img:nth-child(1){
+position: absolute;
+right: 0px;
+top:0;
+
+}
+.col-6 img:nth-child(2){
+    position: absolute;
+    right: 170px;
+    top:0;
+}
+.col-6 img:nth-child(3){
+    /* position: absolute;
+    right: 100px;
+    top: 400px;; */
+}
+.col-3 img{
+    /* margin-left:-100px; */
+    width:125%;
+    /* position: absolute; */
+    /* bottom:0; */
+}
+/* .col-4-form-div{
+    width: 100%;
+    height:590px;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 10px;
+} */
+
+/* tailwind form sheet */
+
+/* input[type="text"], input[type="email"], input[type="password"] {
+  @apply bg-white rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline;
+  border: 1px solid #ccc;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  @apply border-blue-500 focus:outline-none focus:shadow-outline;
+}
+
+label {
+  @apply block text-gray-700 font-bold mb-2;
+}
+
+button {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline;
+}
+
+button:hover {
+  @apply bg-blue-700;
+}
+
+a {
+  @apply inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800;
+} */
+
+/* .row .col-6:nth-child(1){
+  height: 150vh;
+} */
+.row .col-6:nth-child(1) h1{
+  font-size: 45px;
+  font-weight: 600;
+  color: rgb(119, 116, 110);
+text-align: center;
+margin-top: 70px;
+}
+.gender-details{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.gender-details div{
+  display: flex;
+  align-items: center;
+  /* justify-content: center;
+  vertical-align: bottom; */
+}
+.shadow-outline{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+font-size: 26px;
+}
+.shadow-outline:active{
+  box-shadow:none;
+border:1px solid rgb(63, 2, 63)
+}
+.password{
+  color: #00FF00;
+  margin-top:-20px;
+
+}
